@@ -28,27 +28,27 @@ mkdir -p %{buildroot}/var/lib/stub_http_server
 ls
 cp %{SOURCE1} %{buildroot}/var/lib/stub_http_server
 
-%pre
-/usr/bin/getent group stub_http_server > /dev/null || /usr/sbin/groupadd -r stub_http_server
-/usr/bin/getent passwd stub_http_server > /dev/null || /usr/sbin/useradd -r -d /var/lib/stub_http_server/ -s /bin/bash -g stub_http_server stub_http_server
-
-%post
-%if %use_systemd
-/usr/bin/systemctl daemon-reload
-%endif
-
-%preun
-%if %use_systemd
-/usr/bin/systemctl stop %{name}
-%endif
-
-%postun
-%if %use_systemd
-/usr/bin/systemctl daemon-reload
-%endif
-
-%files
-%dir %attr(0775, victoriametrics, victoriametrics) /var/lib/stub_http_server/stub_http_server.js
-%if %{use_systemd}
-%{_unitdir}/%{name}.service
-%endif
+#%pre
+#/usr/bin/getent group stub_http_server > /dev/null || /usr/sbin/groupadd -r stub_http_server
+#/usr/bin/getent passwd stub_http_server > /dev/null || /usr/sbin/useradd -r -d /var/lib/stub_http_server/ -s /bin/bash -g #stub_http_server stub_http_server
+#
+#%post
+#%if %use_systemd
+#/usr/bin/systemctl daemon-reload
+#%endif
+#
+#%preun
+#%if %use_systemd
+#/usr/bin/systemctl stop %{name}
+#%endif
+#
+#%postun
+#%if %use_systemd
+#/usr/bin/systemctl daemon-reload
+#%endif
+#
+#%files
+#%dir %attr(0775, victoriametrics, victoriametrics) /var/lib/stub_http_server/stub_http_server.js
+#%if %{use_systemd}
+#%{_unitdir}/%{name}.service
+#%endif
