@@ -1,7 +1,7 @@
 var http = require('http');
 
-var return_codes = [200,301,400,401,404,500,502,503]; // <- Return Code List
-var max_sleep = 2000;                                 // <- Maximum timeout after which the server responds
+var return_codes = [200,301,400,200,401,404,200,500,200,502,503]; // <- Return Code List
+var max_sleep = 1000;                                 // <- Maximum timeout after which the server responds
 var listen_port = 8080;                               // <- Listen port
 
 function sleep(ms) {
