@@ -26,7 +26,6 @@ stub_http_server
 ls
 mkdir -p %{buildroot}/var/lib/stub_http_server
 ls
-ls -ld /builddir/build/BUILDROOT/stub_http_server-0.1-1.x86_64/var/lib/stub_http_server
 cp %{SOURCE1} %{buildroot}/var/lib/stub_http_server
 
 %pre
