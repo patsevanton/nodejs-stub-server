@@ -47,8 +47,8 @@ cp %{SOURCE1} %{buildroot}/var/lib/stub_http_server
 /usr/bin/systemctl daemon-reload
 %endif
 
-#%files
-#%dir %attr(0775, stub_http_server, stub_http_server) /var/lib/stub_http_server/stub_http_server.js
-#%if %{use_systemd}
-#%{_unitdir}/%{name}.service
-#%endif
+%files
+%dir %attr(0775, stub_http_server, stub_http_server) /var/lib/stub_http_server/stub_http_server.js
+%if %{use_systemd}
+%{_unitdir}/%{name}.service
+%endif
