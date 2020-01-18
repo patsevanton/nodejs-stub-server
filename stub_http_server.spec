@@ -23,8 +23,10 @@ stub_http_server
 %{__install} -m644 %{SOURCE0} \
     %{buildroot}%{_unitdir}/%{name}.service
 %endif
-install -d -m 0775 %{buildroot}/var/lib/stub_http_server/
-install -p -m 0664 %{SOURCE1} %{buildroot}/var/lib/stub_http_server/
+ls
+install -d -m 0775 %{buildroot}/var/lib/stub_http_server
+ls
+install -m 0664 %{SOURCE1} %{buildroot}/var/lib/stub_http_server
 
 %pre
 /usr/bin/getent group stub_http_server > /dev/null || /usr/sbin/groupadd -r stub_http_server
