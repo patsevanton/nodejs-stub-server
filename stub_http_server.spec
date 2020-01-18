@@ -24,8 +24,9 @@ stub_http_server
     %{buildroot}%{_unitdir}/%{name}.service
 %endif
 ls
-install -d -m 0775 %{buildroot}/var/lib/stub_http_server
+mkdir -p %{buildroot}/var/lib/stub_http_server
 ls
+ls /builddir/build/BUILDROOT/stub_http_server-0.1-1.x86_64/var/lib/stub_http_server
 install -m 0664 %{SOURCE1} %{buildroot}/var/lib/stub_http_server
 
 %pre
