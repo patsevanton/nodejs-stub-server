@@ -27,7 +27,7 @@ ls
 mkdir -p %{buildroot}/var/lib/stub_http_server
 ls
 ls -ld /builddir/build/BUILDROOT/stub_http_server-0.1-1.x86_64/var/lib/stub_http_server
-install -m 0664 %{SOURCE1} %{buildroot}/var/lib/stub_http_server/stub_http_server.js
+cp %{SOURCE1} %{buildroot}/var/lib/stub_http_server
 
 %pre
 /usr/bin/getent group stub_http_server > /dev/null || /usr/sbin/groupadd -r stub_http_server
