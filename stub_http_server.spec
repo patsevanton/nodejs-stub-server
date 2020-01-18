@@ -1,6 +1,6 @@
 Name:    stub_http_server
 Version: 0.1
-Release: 1
+Release: 2
 Summary: stub_http_server
 Group:   Development Tools
 License: ASL 2.0
@@ -23,10 +23,8 @@ stub_http_server
 %{__install} -m644 %{SOURCE0} \
     %{buildroot}%{_unitdir}/%{name}.service
 %endif
-ls
-mkdir -p %{buildroot}/var/lib/stub_http_server
-ls
-cp %{SOURCE1} %{buildroot}/var/lib/stub_http_server
+%{__install} -m 0755 -d %{buildroot}/var/lib/stub_http_server
+%{__install} -m644 %{SOURCE1} %{buildroot}/var/lib/stub_http_server
 
 %pre
 /usr/bin/getent group stub_http_server > /dev/null || /usr/sbin/groupadd -r stub_http_server
@@ -48,7 +46,8 @@ cp %{SOURCE1} %{buildroot}/var/lib/stub_http_server
 %endif
 
 %files
-%dir %attr(0775, stub_http_server, stub_http_server) /var/lib/stub_http_server/stub_http_server.js
+%defattr(-,stub_http_server,stub_http_server,-)
+/var/lib/stub_http_server/stub_http_server.js
 %if %{use_systemd}
 %{_unitdir}/%{name}.service
 %endif
