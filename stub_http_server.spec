@@ -1,6 +1,6 @@
 Name:    stub_http_server
-Version: 0.1
-Release: 2
+Version: 0.2
+Release: 1
 Summary: stub_http_server
 Group:   Development Tools
 License: ASL 2.0
